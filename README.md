@@ -34,5 +34,3 @@ userInput.InputChanged:Connect(function(input)
 		)
     end
 end)
-	end
-end)
