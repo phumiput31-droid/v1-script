@@ -33,8 +33,8 @@ Frame.Parent = AppleHubGUI
 Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0.211861506, 0, 0.021974206, 0)
-Frame.Size = UDim2.new(0, 413, 0, 318)
+Frame.Position = UDim2.new(0.252801746, 0, -0.00158348691, 0)
+Frame.Size = UDim2.new(0, 357, 0, 258)
 
 UICorner.CornerRadius = UDim.new(0, 50)
 UICorner.Parent = Frame
@@ -44,8 +44,8 @@ GodToggle.Parent = Frame
 GodToggle.BackgroundColor3 = Color3.fromRGB(172, 172, 172)
 GodToggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 GodToggle.BorderSizePixel = 0
-GodToggle.Position = UDim2.new(0.824803174, 0, 0.422604412, 0)
-GodToggle.Size = UDim2.new(0, 55, 0, 50)
+GodToggle.Position = UDim2.new(0.819200873, 0, 0.438108295, 0)
+GodToggle.Size = UDim2.new(0, 43, 0, 40)
 GodToggle.Font = Enum.Font.Arcade
 GodToggle.Text = "Use"
 GodToggle.TextColor3 = Color3.fromRGB(229, 229, 229)
@@ -59,8 +59,8 @@ Frame_2.Parent = Frame
 Frame_2.BackgroundColor3 = Color3.fromRGB(85, 85, 255)
 Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame_2.BorderSizePixel = 0
-Frame_2.Position = UDim2.new(7.38924442e-08, 0, -0.00245700101, 0)
-Frame_2.Size = UDim2.new(0, 413, 0, 50)
+Frame_2.Position = UDim2.new(8.54834141e-08, 0, -0.0024569903, 0)
+Frame_2.Size = UDim2.new(0, 357, 0, 50)
 
 UICorner_3.Parent = Frame_2
 
@@ -69,8 +69,8 @@ TextLabel.Parent = Frame
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BorderColor3 = Color3.fromRGB(255, 255, 0)
 TextLabel.BorderSizePixel = 0
-TextLabel.Position = UDim2.new(0.0696889237, 0, 0.92270577, 0)
-TextLabel.Size = UDim2.new(0, 354, 0, 15)
+TextLabel.Position = UDim2.new(0.0892966539, 0, 0.892987072, 0)
+TextLabel.Size = UDim2.new(0, 292, 0, 14)
 TextLabel.Font = Enum.Font.FredokaOne
 TextLabel.Text = "Made by NUGA"
 TextLabel.TextColor3 = Color3.fromRGB(85, 170, 255)
@@ -101,8 +101,8 @@ FlyToggle.Parent = Frame
 FlyToggle.BackgroundColor3 = Color3.fromRGB(172, 172, 172)
 FlyToggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 FlyToggle.BorderSizePixel = 0
-FlyToggle.Position = UDim2.new(0.824803174, 0, 0.24570024, 0)
-FlyToggle.Size = UDim2.new(0, 55, 0, 50)
+FlyToggle.Position = UDim2.new(0.819200873, 0, 0.24570027, 0)
+FlyToggle.Size = UDim2.new(0, 42, 0, 42)
 FlyToggle.Font = Enum.Font.Arcade
 FlyToggle.Text = "Use"
 FlyToggle.TextColor3 = Color3.fromRGB(229, 229, 229)
@@ -132,8 +132,8 @@ TextLabel_2.Parent = Frame
 TextLabel_2.BackgroundColor3 = Color3.fromRGB(114, 116, 255)
 TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel_2.BorderSizePixel = 0
-TextLabel_2.Position = UDim2.new(0.0704563707, 0, 0.24570024, 0)
-TextLabel_2.Size = UDim2.new(0, 296, 0, 50)
+TextLabel_2.Position = UDim2.new(0.104069732, 0, 0.24570027, 0)
+TextLabel_2.Size = UDim2.new(0, 233, 0, 42)
 TextLabel_2.Font = Enum.Font.Arcade
 TextLabel_2.Text = "Fly (BETA)"
 TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -145,8 +145,8 @@ TextLabel_3.Parent = Frame
 TextLabel_3.BackgroundColor3 = Color3.fromRGB(114, 116, 255)
 TextLabel_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel_3.BorderSizePixel = 0
-TextLabel_3.Position = UDim2.new(0.0704563707, 0, 0.422604412, 0)
-TextLabel_3.Size = UDim2.new(0, 296, 0, 50)
+TextLabel_3.Position = UDim2.new(0.101268694, 0, 0.439498723, 0)
+TextLabel_3.Size = UDim2.new(0, 233, 0, 40)
 TextLabel_3.Font = Enum.Font.Arcade
 TextLabel_3.Text = "GOD mode"
 TextLabel_3.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -158,8 +158,8 @@ TextLabel_4.Parent = Frame
 TextLabel_4.BackgroundColor3 = Color3.fromRGB(114, 116, 255)
 TextLabel_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel_4.BorderSizePixel = 0
-TextLabel_4.Position = UDim2.new(0.0704563707, 0, 0.599508584, 0)
-TextLabel_4.Size = UDim2.new(0, 296, 0, 50)
+TextLabel_4.Position = UDim2.new(0.101268604, 0, 0.634392381, 0)
+TextLabel_4.Size = UDim2.new(0, 232, 0, 44)
 TextLabel_4.Font = Enum.Font.Arcade
 TextLabel_4.Text = "EPS see"
 TextLabel_4.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -172,8 +172,8 @@ ESPToggle.Parent = Frame
 ESPToggle.BackgroundColor3 = Color3.fromRGB(172, 172, 172)
 ESPToggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ESPToggle.BorderSizePixel = 0
-ESPToggle.Position = UDim2.new(0.824803174, 0, 0.599508584, 0)
-ESPToggle.Size = UDim2.new(0, 55, 0, 50)
+ESPToggle.Position = UDim2.new(0.819200873, 0, 0.634392381, 0)
+ESPToggle.Size = UDim2.new(0, 42, 0, 38)
 ESPToggle.Font = Enum.Font.Arcade
 ESPToggle.Text = "Use"
 ESPToggle.TextColor3 = Color3.fromRGB(234, 234, 234)
@@ -185,7 +185,7 @@ UICorner_7.Parent = ESPToggle
 
 -- Scripts:
 
-local function AFTOYBQ_fake_script() -- AppleHubGUI.LocalScript 
+local function JEENZU_fake_script() -- AppleHubGUI.LocalScript 
 	local script = Instance.new('LocalScript', AppleHubGUI)
 
 	local player = game.Players.LocalPlayer
@@ -311,4 +311,4 @@ local function AFTOYBQ_fake_script() -- AppleHubGUI.LocalScript
 	end)
 	
 end
-coroutine.wrap(AFTOYBQ_fake_script)()
+coroutine.wrap(JEENZU_fake_script)()
