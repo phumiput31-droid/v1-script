@@ -1,4 +1,4 @@
--- NUGA HUB
+-- NUGA HUB V1
 -- Version: 1.2
 
 -- Instances:
@@ -33,8 +33,8 @@ Frame.Parent = AppleHubGUI
 Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0.301992655, 0, 0.231588021, 0)
-Frame.Size = UDim2.new(0, 508, 0, 407)
+Frame.Position = UDim2.new(0.170310944, 0, 0.0986760557, 0)
+Frame.Size = UDim2.new(0, 413, 0, 318)
 
 UICorner.CornerRadius = UDim.new(0, 50)
 UICorner.Parent = Frame
@@ -59,7 +59,8 @@ Frame_2.Parent = Frame
 Frame_2.BackgroundColor3 = Color3.fromRGB(85, 85, 255)
 Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame_2.BorderSizePixel = 0
-Frame_2.Size = UDim2.new(0, 508, 0, 50)
+Frame_2.Position = UDim2.new(7.38924442e-08, 0, -0.00245700101, 0)
+Frame_2.Size = UDim2.new(0, 413, 0, 50)
 
 UICorner_3.Parent = Frame_2
 
@@ -68,8 +69,8 @@ TextLabel.Parent = Frame
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BorderColor3 = Color3.fromRGB(255, 255, 0)
 TextLabel.BorderSizePixel = 0
-TextLabel.Position = UDim2.new(0.0721102729, 0, 0.959498286, 0)
-TextLabel.Size = UDim2.new(0, 437, 0, 16)
+TextLabel.Position = UDim2.new(0.0696889237, 0, 0.92270577, 0)
+TextLabel.Size = UDim2.new(0, 354, 0, 15)
 TextLabel.Font = Enum.Font.FredokaOne
 TextLabel.Text = "Made by NUGA"
 TextLabel.TextColor3 = Color3.fromRGB(85, 170, 255)
@@ -86,7 +87,7 @@ name.Parent = Frame
 name.BackgroundColor3 = Color3.fromRGB(85, 85, 255)
 name.BorderColor3 = Color3.fromRGB(0, 0, 0)
 name.BorderSizePixel = 0
-name.Position = UDim2.new(0.305118114, 0, 0.00737100746, 0)
+name.Position = UDim2.new(0.256691933, 0, 0.00982800405, 0)
 name.Size = UDim2.new(0, 200, 0, 41)
 name.Font = Enum.Font.FredokaOne
 name.Text = "NUGA HUB"
@@ -131,8 +132,8 @@ TextLabel_2.Parent = Frame
 TextLabel_2.BackgroundColor3 = Color3.fromRGB(114, 116, 255)
 TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel_2.BorderSizePixel = 0
-TextLabel_2.Position = UDim2.new(0.0898268074, 0, 0.24570024, 0)
-TextLabel_2.Size = UDim2.new(0, 330, 0, 50)
+TextLabel_2.Position = UDim2.new(0.0704563707, 0, 0.24570024, 0)
+TextLabel_2.Size = UDim2.new(0, 296, 0, 50)
 TextLabel_2.Font = Enum.Font.Arcade
 TextLabel_2.Text = "Fly (BETA)"
 TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -144,8 +145,8 @@ TextLabel_3.Parent = Frame
 TextLabel_3.BackgroundColor3 = Color3.fromRGB(114, 116, 255)
 TextLabel_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel_3.BorderSizePixel = 0
-TextLabel_3.Position = UDim2.new(0.0898268074, 0, 0.422604412, 0)
-TextLabel_3.Size = UDim2.new(0, 330, 0, 50)
+TextLabel_3.Position = UDim2.new(0.0704563707, 0, 0.422604412, 0)
+TextLabel_3.Size = UDim2.new(0, 296, 0, 50)
 TextLabel_3.Font = Enum.Font.Arcade
 TextLabel_3.Text = "GOD mode"
 TextLabel_3.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -157,8 +158,8 @@ TextLabel_4.Parent = Frame
 TextLabel_4.BackgroundColor3 = Color3.fromRGB(114, 116, 255)
 TextLabel_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel_4.BorderSizePixel = 0
-TextLabel_4.Position = UDim2.new(0.0898268074, 0, 0.599508584, 0)
-TextLabel_4.Size = UDim2.new(0, 330, 0, 50)
+TextLabel_4.Position = UDim2.new(0.0704563707, 0, 0.599508584, 0)
+TextLabel_4.Size = UDim2.new(0, 296, 0, 50)
 TextLabel_4.Font = Enum.Font.Arcade
 TextLabel_4.Text = "EPS see"
 TextLabel_4.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -184,7 +185,7 @@ UICorner_7.Parent = ESPToggle
 
 -- Scripts:
 
-local function PNES_fake_script() -- AppleHubGUI.LocalScript 
+local function EROUELD_fake_script() -- AppleHubGUI.LocalScript 
 	local script = Instance.new('LocalScript', AppleHubGUI)
 
 	local player = game.Players.LocalPlayer
@@ -217,7 +218,7 @@ local function PNES_fake_script() -- AppleHubGUI.LocalScript
 	}
 	
 	sounds.God.SoundId = "rbxassetid://17570651967" -- เสียงพระเจ้า
-	sounds.Fly.SoundId = "rbxassetid://114037851906101" -- เสียงบิน
+	ounds.Fly.SoundId = "rbxassetid://114037851906101" -- เสียงบิน
 	sounds.ESP.SoundId = "rbxassetid://7173976933" -- เสียง ESP
 	sounds.Hide.SoundId = "rbxassetid://8981398719" -- คลิก Hide
 	sounds.QQ.SoundId = "rbxassetid://157167203"
@@ -310,4 +311,4 @@ local function PNES_fake_script() -- AppleHubGUI.LocalScript
 	end)
 	
 end
-coroutine.wrap(PNES_fake_script)()
+coroutine.wrap(EROUELD_fake_script)()
