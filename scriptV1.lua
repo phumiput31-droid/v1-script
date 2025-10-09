@@ -1,189 +1,313 @@
--- Gui to Lua
--- Version: 3.2
+-- NUGA HUB
+-- Version: 1.2
 
 -- Instances:
 
-local SpeedGUI = Instance.new("ScreenGui")
-local TextBox = Instance.new("TextBox")
+local AppleHubGUI = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
-local ConfirmButton = Instance.new("TextButton")
+local GodToggle = Instance.new("TextButton")
 local UICorner_2 = Instance.new("UICorner")
-local ResetButton = Instance.new("TextButton")
+local Frame_2 = Instance.new("Frame")
 local UICorner_3 = Instance.new("UICorner")
-local HideButton = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
 local UICorner_4 = Instance.new("UICorner")
+local name = Instance.new("TextLabel")
+local FlyToggle = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local HideButton = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
+local TextLabel_4 = Instance.new("TextLabel")
+local ESPToggle = Instance.new("TextButton")
+local UICorner_7 = Instance.new("UICorner")
 
 --Properties:
 
-SpeedGUI.Name = "SpeedGUI"
-SpeedGUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-SpeedGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+AppleHubGUI.Name = "AppleHubGUI"
+AppleHubGUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+AppleHubGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-TextBox.Parent = SpeedGUI
-TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextBox.BorderSizePixel = 0
-TextBox.Position = UDim2.new(0.41366908, 0, 0.801208258, 0)
-TextBox.Size = UDim2.new(0, 172, 0, 34)
-TextBox.Font = Enum.Font.SourceSans
-TextBox.Text = ""
-TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextBox.TextSize = 14.000
+Frame.Parent = AppleHubGUI
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.301992655, 0, 0.231588021, 0)
+Frame.Size = UDim2.new(0, 508, 0, 407)
 
-UICorner.CornerRadius = UDim.new(0, 10)
-UICorner.Parent = TextBox
+UICorner.CornerRadius = UDim.new(0, 50)
+UICorner.Parent = Frame
 
-ConfirmButton.Name = "ConfirmButton"
-ConfirmButton.Parent = SpeedGUI
-ConfirmButton.BackgroundColor3 = Color3.fromRGB(170, 255, 127)
-ConfirmButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ConfirmButton.BorderSizePixel = 0
-ConfirmButton.Position = UDim2.new(0.538569152, 0, 0.887514353, 0)
-ConfirmButton.Size = UDim2.new(0, 70, 0, 43)
-ConfirmButton.Font = Enum.Font.SourceSansBold
-ConfirmButton.Text = "ตกลง"
-ConfirmButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-ConfirmButton.TextSize = 14.000
+GodToggle.Name = "GodToggle"
+GodToggle.Parent = Frame
+GodToggle.BackgroundColor3 = Color3.fromRGB(172, 172, 172)
+GodToggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+GodToggle.BorderSizePixel = 0
+GodToggle.Position = UDim2.new(0.824803174, 0, 0.422604412, 0)
+GodToggle.Size = UDim2.new(0, 55, 0, 50)
+GodToggle.Font = Enum.Font.Arcade
+GodToggle.Text = "Use"
+GodToggle.TextColor3 = Color3.fromRGB(229, 229, 229)
+GodToggle.TextScaled = true
+GodToggle.TextSize = 14.000
+GodToggle.TextWrapped = true
 
-UICorner_2.CornerRadius = UDim.new(0, 10)
-UICorner_2.Parent = ConfirmButton
+UICorner_2.Parent = GodToggle
 
-ResetButton.Name = "ResetButton"
-ResetButton.Parent = SpeedGUI
-ResetButton.BackgroundColor3 = Color3.fromRGB(255, 130, 130)
-ResetButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ResetButton.BorderSizePixel = 0
-ResetButton.Position = UDim2.new(0.39268586, 0, 0.887514353, 0)
-ResetButton.Size = UDim2.new(0, 70, 0, 43)
-ResetButton.Font = Enum.Font.Unknown
-ResetButton.Text = "รีเซ็ต"
-ResetButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-ResetButton.TextSize = 14.000
+Frame_2.Parent = Frame
+Frame_2.BackgroundColor3 = Color3.fromRGB(85, 85, 255)
+Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_2.BorderSizePixel = 0
+Frame_2.Size = UDim2.new(0, 508, 0, 50)
 
-UICorner_3.CornerRadius = UDim.new(0, 10)
-UICorner_3.Parent = ResetButton
+UICorner_3.Parent = Frame_2
+
+TextLabel.Name = "เครดิต"
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BorderColor3 = Color3.fromRGB(255, 255, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.0721102729, 0, 0.959498286, 0)
+TextLabel.Size = UDim2.new(0, 437, 0, 16)
+TextLabel.Font = Enum.Font.FredokaOne
+TextLabel.Text = "Made by NUGA"
+TextLabel.TextColor3 = Color3.fromRGB(85, 170, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextStrokeColor3 = Color3.fromRGB(85, 170, 255)
+TextLabel.TextWrapped = true
+
+UICorner_4.CornerRadius = UDim.new(0, 50)
+UICorner_4.Parent = TextLabel
+
+name.Name = "name"
+name.Parent = Frame
+name.BackgroundColor3 = Color3.fromRGB(85, 85, 255)
+name.BorderColor3 = Color3.fromRGB(0, 0, 0)
+name.BorderSizePixel = 0
+name.Position = UDim2.new(0.305118114, 0, 0.00737100746, 0)
+name.Size = UDim2.new(0, 200, 0, 41)
+name.Font = Enum.Font.FredokaOne
+name.Text = "NUGA HUB"
+name.TextColor3 = Color3.fromRGB(85, 170, 255)
+name.TextScaled = true
+name.TextSize = 14.000
+name.TextWrapped = true
+
+FlyToggle.Name = "FlyToggle"
+FlyToggle.Parent = Frame
+FlyToggle.BackgroundColor3 = Color3.fromRGB(172, 172, 172)
+FlyToggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+FlyToggle.BorderSizePixel = 0
+FlyToggle.Position = UDim2.new(0.824803174, 0, 0.24570024, 0)
+FlyToggle.Size = UDim2.new(0, 55, 0, 50)
+FlyToggle.Font = Enum.Font.Arcade
+FlyToggle.Text = "Use"
+FlyToggle.TextColor3 = Color3.fromRGB(229, 229, 229)
+FlyToggle.TextScaled = true
+FlyToggle.TextSize = 14.000
+FlyToggle.TextWrapped = true
+
+UICorner_5.Parent = FlyToggle
 
 HideButton.Name = "HideButton"
-HideButton.Parent = SpeedGUI
-HideButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+HideButton.Parent = Frame
+HideButton.BackgroundColor3 = Color3.fromRGB(255, 128, 128)
 HideButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 HideButton.BorderSizePixel = 0
-HideButton.Position = UDim2.new(0.470623493, 0, 0.112197928, 0)
-HideButton.Size = UDim2.new(0, 52, 0, 50)
-HideButton.Font = Enum.Font.SourceSansBold
-HideButton.Text = "V1"
-HideButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+HideButton.Position = UDim2.new(0.888754666, 0, 0.0183420014, 0)
+HideButton.Size = UDim2.new(0, 35, 0, 34)
+HideButton.Font = Enum.Font.FredokaOne
+HideButton.Text = "X"
+HideButton.TextColor3 = Color3.fromRGB(255, 85, 0)
+HideButton.TextScaled = true
 HideButton.TextSize = 14.000
+HideButton.TextWrapped = true
 
-UICorner_4.CornerRadius = UDim.new(0, 60)
-UICorner_4.Parent = HideButton
+UICorner_6.Parent = HideButton
+
+TextLabel_2.Parent = Frame
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(114, 116, 255)
+TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.0898268074, 0, 0.24570024, 0)
+TextLabel_2.Size = UDim2.new(0, 330, 0, 50)
+TextLabel_2.Font = Enum.Font.Arcade
+TextLabel_2.Text = "Fly (BETA)"
+TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextWrapped = true
+
+TextLabel_3.Parent = Frame
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(114, 116, 255)
+TextLabel_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.BorderSizePixel = 0
+TextLabel_3.Position = UDim2.new(0.0898268074, 0, 0.422604412, 0)
+TextLabel_3.Size = UDim2.new(0, 330, 0, 50)
+TextLabel_3.Font = Enum.Font.Arcade
+TextLabel_3.Text = "GOD mode"
+TextLabel_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.TextScaled = true
+TextLabel_3.TextSize = 14.000
+TextLabel_3.TextWrapped = true
+
+TextLabel_4.Parent = Frame
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(114, 116, 255)
+TextLabel_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_4.BorderSizePixel = 0
+TextLabel_4.Position = UDim2.new(0.0898268074, 0, 0.599508584, 0)
+TextLabel_4.Size = UDim2.new(0, 330, 0, 50)
+TextLabel_4.Font = Enum.Font.Arcade
+TextLabel_4.Text = "EPS see"
+TextLabel_4.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_4.TextScaled = true
+TextLabel_4.TextSize = 14.000
+TextLabel_4.TextWrapped = true
+
+ESPToggle.Name = "ESPToggle"
+ESPToggle.Parent = Frame
+ESPToggle.BackgroundColor3 = Color3.fromRGB(172, 172, 172)
+ESPToggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ESPToggle.BorderSizePixel = 0
+ESPToggle.Position = UDim2.new(0.824803174, 0, 0.599508584, 0)
+ESPToggle.Size = UDim2.new(0, 55, 0, 50)
+ESPToggle.Font = Enum.Font.Arcade
+ESPToggle.Text = "Use"
+ESPToggle.TextColor3 = Color3.fromRGB(234, 234, 234)
+ESPToggle.TextScaled = true
+ESPToggle.TextSize = 14.000
+ESPToggle.TextWrapped = true
+
+UICorner_7.Parent = ESPToggle
 
 -- Scripts:
 
-local function PUCVS_fake_script() -- HideButton.LocalScript 
-	local script = Instance.new('LocalScript', HideButton)
+local function PNES_fake_script() -- AppleHubGUI.LocalScript 
+	local script = Instance.new('LocalScript', AppleHubGUI)
 
-	-- ทำให้ปุ่มสามารถลากได้
-	local button = script.Parent
-	local dragging = false
-	local dragStart = nil
-	local startPos = nil
-	
-	local userInput = game:GetService("UserInputService")
-	
-	-- เมื่อเริ่มกดปุ่มซ้าย
-	button.InputBegan:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 then
-			dragging = true
-			dragStart = input.Position
-			startPos = button.Position
-		end
-	end)
-	
-	-- เมื่อปล่อยปุ่มเมาส์
-	userInput.InputEnded:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 then
-			dragging = false
-		end
-	end)
-	
-	-- ขณะลากเมาส์อยู่
-	userInput.InputChanged:Connect(function(input)
-		if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
-			local delta = input.Position - dragStart
-			button.Position = UDim2.new(
-				startPos.X.Scale,
-				startPos.X.Offset + delta.X,
-				startPos.Y.Scale,
-				startPos.Y.Offset + delta.Y
-			)
-		end
-	end)
-	
-	
-end
-coroutine.wrap(PUCVS_fake_script)()
-local function LARG_fake_script() -- SpeedGUI.LocalScript 
-	local script = Instance.new('LocalScript', SpeedGUI)
-
-	-- ดึง Player และ Humanoid
 	local player = game.Players.LocalPlayer
-	local character = player.Character or player.CharacterAdded:Wait()
-	local humanoid = character:WaitForChild("Humanoid")
-	
-	-- ดึง Object จาก GUI
+	local char = player.Character or player.CharacterAdded:Wait()
+	local humanoid = char:WaitForChild("Humanoid")
 	local gui = script.Parent
-	local inputBox = gui:WaitForChild("TextBox")
-	local confirmButton = gui:WaitForChild("ConfirmButton")
-	local resetButton = gui:WaitForChild("ResetButton")
-	local hideButton = gui:WaitForChild("HideButton")
+	local panel = gui:WaitForChild("Frame")
+	local hideBtn = panel:WaitForChild("HideButton")
+	local godBtn = panel:WaitForChild("GodToggle")
+	local flyBtn = panel:WaitForChild("FlyToggle")
+	local espBtn = panel:WaitForChild("ESPToggle")
 	
-	-- เก็บค่าความเร็วพื้นฐานไว้
-	local defaultSpeed = humanoid.WalkSpeed
+	-- ปุ่ม qq (ซ่อนเริ่มต้น)
+	local qqBtn = Instance.new("TextButton")
+	qqBtn.Size = UDim2.new(0, 100, 0, 50)
+	qqBtn.Position = UDim2.new(0, 20, 0, 20)
+	qqBtn.Text = "qq"
+	qqBtn.BackgroundColor3 = Color3.fromRGB(50,50,50)
+	qqBtn.TextColor3 = Color3.fromRGB(255,255,255)
+	qqBtn.Visible = false
+	qqBtn.Parent = gui
 	
-	-- เมื่อกดปุ่ม "ตกลง"
-	confirmButton.MouseButton1Click:Connect(function()
-		local speedValue = tonumber(inputBox.Text)
-		if speedValue then
-			humanoid.WalkSpeed = speedValue
+	-- เสียงแต่ละปุ่ม
+	local sounds = {
+		God = Instance.new("Sound"),
+		Fly = Instance.new("Sound"),
+		ESP = Instance.new("Sound"),
+		Hide = Instance.new("Sound"),
+		QQ = Instance.new("Sound")
+	}
+	
+	sounds.God.SoundId = "rbxassetid://17570651967" -- เสียงพระเจ้า
+	sounds.Fly.SoundId = "rbxassetid://114037851906101" -- เสียงบิน
+	sounds.ESP.SoundId = "rbxassetid://7173976933" -- เสียง ESP
+	sounds.Hide.SoundId = "rbxassetid://8981398719" -- คลิก Hide
+	sounds.QQ.SoundId = "rbxassetid://157167203"
+	
+	for _, s in pairs(sounds) do
+		s.Parent = gui
+	end
+	
+	-- ฟังก์ชันสร้าง Toggle Button
+	local function setupToggleButton(button, sound, callback)
+		button.Text = "Use"
+		local isUsed = false
+		button.MouseButton1Click:Connect(function()
+			isUsed = not isUsed
+			button.Text = isUsed and "Nope" or "Use"
+			sound:Play()
+			if callback then callback(isUsed) end
+		end)
+	end
+	
+	-- God Mode
+	setupToggleButton(godBtn, sounds.God, function(state)
+		if state then
+			humanoid.MaxHealth = math.huge
+			humanoid.Health = math.huge
 		else
-			warn("⚠️ กรุณาใส่ตัวเลขเท่านั้น!")
+			humanoid.MaxHealth = 100
+			humanoid.Health = 100
 		end
 	end)
 	
-	-- เมื่อกดปุ่ม "รีเซ็ต"
-	resetButton.MouseButton1Click:Connect(function()
-		inputBox.Text = "" -- ลบค่าที่พิมพ์ออก
-		humanoid.WalkSpeed = defaultSpeed -- คืนค่าความเร็วเดิม
-	end)
-	
-	-- ถ้าตัวละครตาย/เกิดใหม่ ให้รีเซ็ตอัตโนมัติ
-	player.CharacterAdded:Connect(function(newChar)
-		humanoid = newChar:WaitForChild("Humanoid")
-		humanoid.WalkSpeed = defaultSpeed
-	end)
-	
-	-- 🧠 ระบบซ่อน/แสดง GUI
-	local guiHidden = false
-	
-	hideButton.MouseButton1Click:Connect(function()
-		guiHidden = not guiHidden
-	
-		for _, element in ipairs(gui:GetChildren()) do
-			if element ~= hideButton and element:IsA("GuiObject") then
-				element.Visible = not guiHidden
-				element.Active = not guiHidden -- ป้องกันการกด
+	-- Fly
+	local flying = false
+	local speed = 50
+	local bodyVelocity
+	setupToggleButton(flyBtn, sounds.Fly, function(state)
+		flying = state
+		if flying then
+			bodyVelocity = Instance.new("BodyVelocity")
+			bodyVelocity.MaxForce = Vector3.new(1e5,1e5,1e5)
+			bodyVelocity.Velocity = Vector3.new(0,0,0)
+			bodyVelocity.Parent = char.PrimaryPart
+		else
+			if bodyVelocity then
+				bodyVelocity:Destroy()
+				bodyVelocity = nil
 			end
 		end
+	end)
 	
-		-- เปลี่ยนข้อความของปุ่ม
-		if guiHidden then
-			hideButton.Text = "แสดง"
-		else
-			hideButton.Text = "ซ่อน"
+	-- ESP (Client-side)
+	local espEnabled = false
+	setupToggleButton(espBtn, sounds.ESP, function(state)
+		espEnabled = state
+		for _, p in pairs(game.Players:GetPlayers()) do
+			if p ~= player and p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
+				local part = p.Character:FindFirstChild("HumanoidRootPart")
+				if state then
+					if not part:FindFirstChild("ESP") then
+						local box = Instance.new("BoxHandleAdornment")
+						box.Adornee = part
+						box.AlwaysOnTop = true
+						box.Size = Vector3.new(2,5,1)
+						box.Color3 = Color3.fromRGB(255,0,0)
+						box.Transparency = 0.5
+						box.Name = "ESP"
+						box.Parent = part
+					end
+				else
+					if part:FindFirstChild("ESP") then
+						part:FindFirstChild("ESP"):Destroy()
+					end
+				end
+			end
 		end
 	end)
 	
+	-- HideButton
+	hideBtn.MouseButton1Click:Connect(function()
+		panel.Visible = false
+		qqBtn.Visible = true
+		sounds.Hide:Play()
+	end)
+	
+	-- qq ปุ่มคืน panel
+	qqBtn.MouseButton1Click:Connect(function()
+		panel.Visible = true
+		qqBtn.Visible = false
+		sounds.QQ:Play()
+	end)
 	
 end
-coroutine.wrap(LARG_fake_script)()
+coroutine.wrap(PNES_fake_script)()
