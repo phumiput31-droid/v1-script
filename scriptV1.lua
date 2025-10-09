@@ -1,4 +1,4 @@
--- NUGA HUB V1
+-- NUGA HUB v1
 -- Version: 1.2
 
 -- Instances:
@@ -33,7 +33,7 @@ Frame.Parent = AppleHubGUI
 Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0.170310944, 0, 0.0986760557, 0)
+Frame.Position = UDim2.new(0.211861506, 0, 0.021974206, 0)
 Frame.Size = UDim2.new(0, 413, 0, 318)
 
 UICorner.CornerRadius = UDim.new(0, 50)
@@ -185,7 +185,7 @@ UICorner_7.Parent = ESPToggle
 
 -- Scripts:
 
-local function EROUELD_fake_script() -- AppleHubGUI.LocalScript 
+local function AFTOYBQ_fake_script() -- AppleHubGUI.LocalScript 
 	local script = Instance.new('LocalScript', AppleHubGUI)
 
 	local player = game.Players.LocalPlayer
@@ -218,7 +218,7 @@ local function EROUELD_fake_script() -- AppleHubGUI.LocalScript
 	}
 	
 	sounds.God.SoundId = "rbxassetid://17570651967" -- เสียงพระเจ้า
-	ounds.Fly.SoundId = "rbxassetid://114037851906101" -- เสียงบิน
+	sounds.Fly.SoundId = "rbxassetid://114037851906101" -- เสียงบิน
 	sounds.ESP.SoundId = "rbxassetid://7173976933" -- เสียง ESP
 	sounds.Hide.SoundId = "rbxassetid://8981398719" -- คลิก Hide
 	sounds.QQ.SoundId = "rbxassetid://157167203"
@@ -311,4 +311,4 @@ local function EROUELD_fake_script() -- AppleHubGUI.LocalScript
 	end)
 	
 end
-coroutine.wrap(EROUELD_fake_script)()
+coroutine.wrap(AFTOYBQ_fake_script)()
