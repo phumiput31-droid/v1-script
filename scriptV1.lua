@@ -31,44 +31,60 @@ TextButton.TextSize = 14.000
 
 -- Scripts:
 
-local function WJBSTGF_fake_script() -- TextButton.LocalScript 
+local function ZPYW_fake_script() -- TextButton.LocalScript 
 	local script = Instance.new('LocalScript', TextButton)
 
 	local Players = game:GetService("Players")
 	local player = Players.LocalPlayer
 	
-	-- ชื่อ Folder ใน Workspace
 	local itemsFolder = workspace:WaitForChild("Items")
 	
-	-- ฟังก์ชันเทเลพอร์ต item ไปยังผู้เล่น
-	local function teleportItemsToPlayer()
+	local function teleportItemsAroundPlayer()
 		local character = player.Character
 		if not character then return end
 		local hrp = character:FindFirstChild("HumanoidRootPart")
 		if not hrp then return end
 	
+		local centerPos = hrp.Position
+		local radius = 5 -- ระยะห่างจากผู้เล่น
+		local angleStep = math.rad(30) -- มุมระหว่าง item แต่ละชิ้น
+		local count = 0
+	
 		-- วนทุก Object ใน Folder Items
 		for _, item in ipairs(itemsFolder:GetDescendants()) do
-			if item:IsA("Tool") then
-				local handle = item:FindFirstChild("Handle")
-				if handle then
-					handle.CFrame = hrp.CFrame + Vector3.new(0,3,0)
-				end
-			elseif item:IsA("BasePart") then
-				item.CFrame = hrp.CFrame + Vector3.new(0,3,0)
-			elseif item:IsA("Model") then
-				for _, part in ipairs(item:GetDescendants()) do
-					if part:IsA("BasePart") then
-						part.CFrame = hrp.CFrame + Vector3.new(0,3,0)
+			if item:IsA("Tool") or item:IsA("BasePart") or item:IsA("Model") then
+				-- คำนวณตำแหน่งรอบตัวผู้เล่น
+				local angle = count * angleStep
+				local x = math.cos(angle) * radius
+				local z = math.sin(angle) * radius
+				local newPos = centerPos + Vector3.new(x, 3, z) -- y=3 ให้สูงขึ้นเล็กน้อย
+	
+				-- วาง item
+				if item:IsA("Tool") then
+					local handle = item:FindFirstChild("Handle")
+					if handle then
+						handle.CFrame = CFrame.new(newPos)
+					end
+				elseif item:IsA("BasePart") then
+					item.CFrame = CFrame.new(newPos)
+				elseif item:IsA("Model") then
+					-- วาง Model โดยย้ายทุก BasePart ข้างใน
+					local offset = newPos - item:GetModelCFrame().Position
+					for _, part in ipairs(item:GetDescendants()) do
+						if part:IsA("BasePart") then
+							part.CFrame = part.CFrame + offset
+						end
 					end
 				end
+	
+				count = count + 1
 			end
 		end
 	end
 	
 	-- ใส่ในปุ่ม
 	local button = script.Parent
-	button.MouseButton1Click:Connect(teleportItemsToPlayer)
+	button.MouseButton1Click:Connect(teleportItemsAroundPlayer)
 	
 end
-coroutine.wrap(WJBSTGF_fake_script)()
+coroutine.wrap(ZPYW_fake_script)()
