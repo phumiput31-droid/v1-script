@@ -31,7 +31,7 @@ TextButton.TextSize = 14.000
 
 -- Scripts:
 
-local function ZPYW_fake_script() -- TextButton.LocalScript 
+local function MABA_fake_script() -- TextButton.LocalScript 
 	local script = Instance.new('LocalScript', TextButton)
 
 	local Players = game:GetService("Players")
@@ -39,27 +39,43 @@ local function ZPYW_fake_script() -- TextButton.LocalScript
 	
 	local itemsFolder = workspace:WaitForChild("Items")
 	
-	local function teleportItemsAroundPlayer()
+	local function teleportItemsCircle()
 		local character = player.Character
 		if not character then return end
 		local hrp = character:FindFirstChild("HumanoidRootPart")
 		if not hrp then return end
 	
 		local centerPos = hrp.Position
-		local radius = 5 -- ระยะห่างจากผู้เล่น
-		local angleStep = math.rad(30) -- มุมระหว่าง item แต่ละชิ้น
-		local count = 0
+		local groundY = 0.5          -- สูงจากพื้น
+		local groupRadius = 3         -- รัศมีวงกลมของกองเดียวกัน
+		local groupSpacing = 8        -- ระยะระหว่างกองแต่ละชื่อ
 	
-		-- วนทุก Object ใน Folder Items
-		for _, item in ipairs(itemsFolder:GetDescendants()) do
+		-- จัดกลุ่มตามชื่อ
+		local groups = {}
+		for _, item in ipairs(itemsFolder:GetChildren()) do
 			if item:IsA("Tool") or item:IsA("BasePart") or item:IsA("Model") then
-				-- คำนวณตำแหน่งรอบตัวผู้เล่น
-				local angle = count * angleStep
-				local x = math.cos(angle) * radius
-				local z = math.sin(angle) * radius
-				local newPos = centerPos + Vector3.new(x, 3, z) -- y=3 ให้สูงขึ้นเล็กน้อย
+				local name = item.Name
+				if not groups[name] then
+					groups[name] = {}
+				end
+				table.insert(groups[name], item)
+			end
+		end
 	
-				-- วาง item
+		-- วางแต่ละกอง
+		local groupCount = 0
+		for groupName, items in pairs(groups) do
+			local numItems = #items
+			local angleStep = 2 * math.pi / math.max(numItems,1) -- มุมระหว่างแต่ละ item
+			local groupCenterX = centerPos.X + groupCount * groupSpacing
+			local groupCenterZ = centerPos.Z
+	
+			for i, item in ipairs(items) do
+				local angle = (i-1) * angleStep
+				local x = groupCenterX + math.cos(angle) * groupRadius
+				local z = groupCenterZ + math.sin(angle) * groupRadius
+				local newPos = Vector3.new(x, groundY, z)
+	
 				if item:IsA("Tool") then
 					local handle = item:FindFirstChild("Handle")
 					if handle then
@@ -68,23 +84,22 @@ local function ZPYW_fake_script() -- TextButton.LocalScript
 				elseif item:IsA("BasePart") then
 					item.CFrame = CFrame.new(newPos)
 				elseif item:IsA("Model") then
-					-- วาง Model โดยย้ายทุก BasePart ข้างใน
-					local offset = newPos - item:GetModelCFrame().Position
+					local modelCFrame = item:GetModelCFrame()
+					local offset = newPos - modelCFrame.Position
 					for _, part in ipairs(item:GetDescendants()) do
 						if part:IsA("BasePart") then
 							part.CFrame = part.CFrame + offset
 						end
 					end
 				end
-	
-				count = count + 1
 			end
+	
+			groupCount = groupCount + 1
 		end
 	end
 	
 	-- ใส่ในปุ่ม
 	local button = script.Parent
-	button.MouseButton1Click:Connect(teleportItemsAroundPlayer)
-	
+	button.MouseButton1Click:Connect(teleportItemsCircle)
 end
-coroutine.wrap(ZPYW_fake_script)()
+coroutine.wrap(MABA_fake_script)()
