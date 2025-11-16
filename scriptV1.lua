@@ -6,6 +6,7 @@
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local TextButton = Instance.new("TextButton")
+local TextButton_2 = Instance.new("TextButton")
 
 --Properties:
 
@@ -16,22 +17,33 @@ Frame.Parent = ScreenGui
 Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0.544564366, 0, 0.18836315, 0)
-Frame.Size = UDim2.new(0, 241, 0, 195)
+Frame.Position = UDim2.new(0.521582723, 0, 0.178046986, 0)
+Frame.Size = UDim2.new(0, 343, 0, 214)
 
+TextButton.Name = "เสกของ"
 TextButton.Parent = Frame
-TextButton.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton.BorderSizePixel = 0
-TextButton.Position = UDim2.new(0.222411096, 0, 0.370494992, 0)
-TextButton.Size = UDim2.new(0, 132, 0, 28)
+TextButton.Position = UDim2.new(0.206997082, 0, 0.0841121525, 0)
+TextButton.Size = UDim2.new(0, 200, 0, 50)
 TextButton.Font = Enum.Font.SourceSans
 TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton.TextSize = 14.000
 
+TextButton_2.Parent = Frame
+TextButton_2.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
+TextButton_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_2.BorderSizePixel = 0
+TextButton_2.Position = UDim2.new(0.206997082, 0, 0.383177578, 0)
+TextButton_2.Size = UDim2.new(0, 200, 0, 50)
+TextButton_2.Font = Enum.Font.SourceSans
+TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_2.TextSize = 14.000
+
 -- Scripts:
 
-local function JTCLE_fake_script() -- TextButton.LocalScript 
+local function RGLEWV_fake_script() -- TextButton.LocalScript 
 	local script = Instance.new('LocalScript', TextButton)
 
 	local Players = game:GetService("Players")
@@ -47,15 +59,21 @@ local function JTCLE_fake_script() -- TextButton.LocalScript
 	
 		local center = hrp.Position
 	
-		local baseY = 0.8                -- ของทั่วไปวางพื้น
-		local chestHeight = 3.5          -- ความสูงของ Item Chest
-		local ringRadius = 12            -- ระยะจากตัวผู้เล่น
-		local groupRadius = 3            -- ขนาดวงภายในกอง
+		local baseY = 0.8
+		local ringRadius = 12
+		local groupRadius = 3
 		local groupAngleStep = math.rad(20)
 	
 		-- จัดกลุ่มตามชื่อ
 		local groups = {}
 		for _, item in ipairs(itemsFolder:GetChildren()) do
+	
+			-- ❌ ข้ามของที่มีคำว่า chest ไม่ว่าจะตัวเล็กใหญ่
+			local lowerName = string.lower(item.Name)
+			if string.find(lowerName, "chest") then
+				continue
+			end
+	
 			if item:IsA("Tool") or item:IsA("BasePart") or item:IsA("Model") then
 				local name = item.Name
 				groups[name] = groups[name] or {}
@@ -65,16 +83,14 @@ local function JTCLE_fake_script() -- TextButton.LocalScript
 	
 		local groupIndex = 0
 		for name, items in pairs(groups) do
-			-- มุมหมุนแต่ละกองรอบผู้เล่น
+	
 			local angle = groupIndex * groupAngleStep
 			local gx = center.X + math.cos(angle) * ringRadius
 			local gz = center.Z + math.sin(angle) * ringRadius
 	
-			-- ถ้าเป็น Item Chest → วางสูง
-			local groupY = (name == "Item Chest") and chestHeight or baseY
+			local groupY = baseY
 			local groupCenter = Vector3.new(gx, groupY, gz)
 	
-			-- ทำวงในกอง
 			local n = #items
 			local step = 2 * math.pi / math.max(n, 1)
 	
@@ -84,7 +100,6 @@ local function JTCLE_fake_script() -- TextButton.LocalScript
 				local iz = groupCenter.Z + math.sin(a) * groupRadius
 				local finalPos = Vector3.new(ix, groupY, iz)
 	
-				-- เทเลพอร์ต item ตามประเภท
 				if item:IsA("Tool") then
 					local h = item:FindFirstChild("Handle")
 					if h then h.CFrame = CFrame.new(finalPos) end
@@ -107,8 +122,71 @@ local function JTCLE_fake_script() -- TextButton.LocalScript
 		end
 	end
 	
-	-- กดปุ่มเพื่อทำงาน
 	script.Parent.MouseButton1Click:Connect(teleportItemsAroundPlayer)
 	
+	
 end
-coroutine.wrap(JTCLE_fake_script)()
+coroutine.wrap(RGLEWV_fake_script)()
+local function VLFMN_fake_script() -- TextButton_2.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_2)
+
+	local button = script.Parent
+	local player = game.Players.LocalPlayer
+	local runService = game:GetService("RunService")
+	
+	button.MouseButton1Click:Connect(function()
+		local char = player.Character
+		if not char then return end
+	
+		local root = char:FindFirstChild("HumanoidRootPart")
+		if not root then return end
+	
+		-- หาโฟลเดอร์ Characters ใน Workspace
+		local folder = workspace:FindFirstChild("Characters")
+		if not folder then
+			warn("ไม่พบโฟลเดอร์ Characters")
+			return
+		end
+	
+		-- ระยะห่างที่ต้องการให้ spawn มาข้างหน้า
+		local distance = 6
+	
+		for _, mob in pairs(folder:GetChildren()) do
+			local mobRoot = mob:FindFirstChild("HumanoidRootPart")
+			local humanoid = mob:FindFirstChildWhichIsA("Humanoid")
+	
+			if mobRoot then
+				-- คำนวณตำแหน่งด้านหน้า
+				local forwardPos = root.CFrame * CFrame.new(0, 0, -distance)
+	
+				-- เทเลพอร์ตศัตรูตรงหน้า + หมุนให้ "หันหลัง" ให้ผู้เล่น
+				mobRoot.CFrame = CFrame.lookAt(
+					Vector3.new(forwardPos.X, root.Position.Y, forwardPos.Z),
+					root.Position
+				) * CFrame.Angles(0, math.rad(180), 0)
+	
+				-- หยุดไม่ให้ขยับ
+				if humanoid then
+					humanoid.WalkSpeed = 0
+					humanoid.JumpPower = 0
+					humanoid:ChangeState(Enum.HumanoidStateType.Physics)
+				end
+	
+				-- Anchor ขาติดพื้น ไม่ให้เดิน
+				for _, part in ipairs(mob:GetDescendants()) do
+					if part:IsA("BasePart") then
+						part.Anchored = true
+					end
+				end
+	
+				-- ปิดการทำดาเมจ (ถ้ามี script damage ใส่ tag)
+				if mob:FindFirstChild("DamageScript") then
+					mob.DamageScript.Disabled = true
+				end
+			end
+		end
+	end)
+	
+	
+end
+coroutine.wrap(VLFMN_fake_script)()
