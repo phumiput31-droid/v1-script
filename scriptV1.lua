@@ -31,7 +31,7 @@ TextButton.TextSize = 14.000
 
 -- Scripts:
 
-local function MABA_fake_script() -- TextButton.LocalScript 
+local function JPGZN_fake_script() -- TextButton.LocalScript 
 	local script = Instance.new('LocalScript', TextButton)
 
 	local Players = game:GetService("Players")
@@ -39,67 +39,69 @@ local function MABA_fake_script() -- TextButton.LocalScript
 	
 	local itemsFolder = workspace:WaitForChild("Items")
 	
-	local function teleportItemsCircle()
+	local function teleportItemsAroundPlayer()
 		local character = player.Character
 		if not character then return end
 		local hrp = character:FindFirstChild("HumanoidRootPart")
 		if not hrp then return end
 	
-		local centerPos = hrp.Position
-		local groundY = 0.5          -- สูงจากพื้น
-		local groupRadius = 3         -- รัศมีวงกลมของกองเดียวกัน
-		local groupSpacing = 8        -- ระยะระหว่างกองแต่ละชื่อ
+		local center = hrp.Position
+		local groundY = 1
+	
+		local ringRadius = 12        -- ระยะห่างจากตัวผู้เล่น
+		local groupRadius = 3        -- ขนาดวงกลมของกอง
+		local groupAngleStep = math.rad(20)  -- มุมขยับแต่ละกอง
 	
 		-- จัดกลุ่มตามชื่อ
 		local groups = {}
 		for _, item in ipairs(itemsFolder:GetChildren()) do
 			if item:IsA("Tool") or item:IsA("BasePart") or item:IsA("Model") then
 				local name = item.Name
-				if not groups[name] then
-					groups[name] = {}
-				end
+				groups[name] = groups[name] or {}
 				table.insert(groups[name], item)
 			end
 		end
 	
-		-- วางแต่ละกอง
-		local groupCount = 0
-		for groupName, items in pairs(groups) do
-			local numItems = #items
-			local angleStep = 2 * math.pi / math.max(numItems,1) -- มุมระหว่างแต่ละ item
-			local groupCenterX = centerPos.X + groupCount * groupSpacing
-			local groupCenterZ = centerPos.Z
+		local groupIndex = 0
+		for name, items in pairs(groups) do
+			-- มุมของแต่ละกองรอบผู้เล่น
+			local angle = groupIndex * groupAngleStep
+			local gx = center.X + math.cos(angle) * ringRadius
+			local gz = center.Z + math.sin(angle) * ringRadius
+			local groupCenter = Vector3.new(gx, groundY, gz)
+	
+			-- วางภายในกองเป็นวงกลม
+			local n = #items
+			local itemAngleStep = 2 * math.pi / math.max(n, 1)
 	
 			for i, item in ipairs(items) do
-				local angle = (i-1) * angleStep
-				local x = groupCenterX + math.cos(angle) * groupRadius
-				local z = groupCenterZ + math.sin(angle) * groupRadius
-				local newPos = Vector3.new(x, groundY, z)
+				local a = (i - 1) * itemAngleStep
+				local ix = groupCenter.X + math.cos(a) * groupRadius
+				local iz = groupCenter.Z + math.sin(a) * groupRadius
+				local finalPos = Vector3.new(ix, groundY, iz)
 	
+				-- Teleport
 				if item:IsA("Tool") then
-					local handle = item:FindFirstChild("Handle")
-					if handle then
-						handle.CFrame = CFrame.new(newPos)
-					end
+					local h = item:FindFirstChild("Handle")
+					if h then h.CFrame = CFrame.new(finalPos) end
 				elseif item:IsA("BasePart") then
-					item.CFrame = CFrame.new(newPos)
+					item.CFrame = CFrame.new(finalPos)
 				elseif item:IsA("Model") then
-					local modelCFrame = item:GetModelCFrame()
-					local offset = newPos - modelCFrame.Position
-					for _, part in ipairs(item:GetDescendants()) do
-						if part:IsA("BasePart") then
-							part.CFrame = part.CFrame + offset
-						end
+					local mc = item:GetModelCFrame()
+					local offset = finalPos - mc.Position
+					for _, p in ipairs(item:GetDescendants()) do
+						if p:IsA("BasePart") then p.CFrame = p.CFrame + offset end
 					end
 				end
 			end
 	
-			groupCount = groupCount + 1
+			groupIndex += 1
 		end
 	end
 	
 	-- ใส่ในปุ่ม
 	local button = script.Parent
-	button.MouseButton1Click:Connect(teleportItemsCircle)
+	button.MouseButton1Click:Connect(teleportItemsAroundPlayer)
+	
 end
-coroutine.wrap(MABA_fake_script)()
+coroutine.wrap(JPGZN_fake_script)()
