@@ -43,7 +43,7 @@ TextButton_2.TextSize = 14.000
 
 -- Scripts:
 
-local function RGLEWV_fake_script() -- TextButton.LocalScript 
+local function AVGMI_fake_script() -- TextButton.LocalScript 
 	local script = Instance.new('LocalScript', TextButton)
 
 	local Players = game:GetService("Players")
@@ -126,13 +126,20 @@ local function RGLEWV_fake_script() -- TextButton.LocalScript
 	
 	
 end
-coroutine.wrap(RGLEWV_fake_script)()
-local function VLFMN_fake_script() -- TextButton_2.LocalScript 
+coroutine.wrap(AVGMI_fake_script)()
+local function MKAEKU_fake_script() -- TextButton_2.LocalScript 
 	local script = Instance.new('LocalScript', TextButton_2)
 
 	local button = script.Parent
 	local player = game.Players.LocalPlayer
 	local runService = game:GetService("RunService")
+	
+	-- รายชื่อของที่จะเทเลพอร์ตมาที่ผู้เล่น
+	local dropItems = {
+		["Morsel"] = true,
+		["Bunny Foot"] = true,
+		["Coal"] = true
+	}
 	
 	button.MouseButton1Click:Connect(function()
 		local char = player.Character
@@ -141,52 +148,76 @@ local function VLFMN_fake_script() -- TextButton_2.LocalScript
 		local root = char:FindFirstChild("HumanoidRootPart")
 		if not root then return end
 	
-		-- หาโฟลเดอร์ Characters ใน Workspace
+		-----------------------------------------
+		-- ① เทเลพอร์ตมอนสเตอร์ใน Characters
+		-----------------------------------------
 		local folder = workspace:FindFirstChild("Characters")
 		if not folder then
 			warn("ไม่พบโฟลเดอร์ Characters")
-			return
-		end
+		else
+			local distance = 6
 	
-		-- ระยะห่างที่ต้องการให้ spawn มาข้างหน้า
-		local distance = 6
+			for _, mob in pairs(folder:GetChildren()) do
+				local mobRoot = mob:FindFirstChild("HumanoidRootPart")
+				local humanoid = mob:FindFirstChildWhichIsA("Humanoid")
 	
-		for _, mob in pairs(folder:GetChildren()) do
-			local mobRoot = mob:FindFirstChild("HumanoidRootPart")
-			local humanoid = mob:FindFirstChildWhichIsA("Humanoid")
+				if mobRoot then
+					-- คำนวณตำแหน่งด้านหน้า
+					local forwardPos = root.CFrame * CFrame.new(0, 0, -distance)
 	
-			if mobRoot then
-				-- คำนวณตำแหน่งด้านหน้า
-				local forwardPos = root.CFrame * CFrame.new(0, 0, -distance)
+					-- ทำให้ mob หันหลังให้ผู้เล่น
+					mobRoot.CFrame = CFrame.lookAt(
+						Vector3.new(forwardPos.X, root.Position.Y, forwardPos.Z),
+						root.Position
+					) * CFrame.Angles(0, math.rad(180), 0)
 	
-				-- เทเลพอร์ตศัตรูตรงหน้า + หมุนให้ "หันหลัง" ให้ผู้เล่น
-				mobRoot.CFrame = CFrame.lookAt(
-					Vector3.new(forwardPos.X, root.Position.Y, forwardPos.Z),
-					root.Position
-				) * CFrame.Angles(0, math.rad(180), 0)
-	
-				-- หยุดไม่ให้ขยับ
-				if humanoid then
-					humanoid.WalkSpeed = 0
-					humanoid.JumpPower = 0
-					humanoid:ChangeState(Enum.HumanoidStateType.Physics)
-				end
-	
-				-- Anchor ขาติดพื้น ไม่ให้เดิน
-				for _, part in ipairs(mob:GetDescendants()) do
-					if part:IsA("BasePart") then
-						part.Anchored = true
+					-- หยุดไม่ให้ขยับ
+					if humanoid then
+						humanoid.WalkSpeed = 0
+						humanoid.JumpPower = 0
+						humanoid:ChangeState(Enum.HumanoidStateType.Physics)
 					end
-				end
 	
-				-- ปิดการทำดาเมจ (ถ้ามี script damage ใส่ tag)
-				if mob:FindFirstChild("DamageScript") then
-					mob.DamageScript.Disabled = true
+					-- anchor ทั้งหมด
+					for _, part in ipairs(mob:GetDescendants()) do
+						if part:IsA("BasePart") then
+							part.Anchored = true
+						end
+					end
+	
+					-- ปิดสคริปต์ดาเมจถ้ามี
+					if mob:FindFirstChild("DamageScript") then
+						mob.DamageScript.Disabled = true
+					end
 				end
 			end
 		end
+	
+		-----------------------------------------
+		-- ② เทเลพอร์ตของดรอปมาที่ผู้เล่น
+		-----------------------------------------
+	
+		for _, item in ipairs(workspace:GetDescendants()) do
+			if dropItems[item.Name] then
+	
+				local tpPos = root.Position + Vector3.new(0, 4, 0)
+	
+				-- BasePart
+				if item:IsA("BasePart") then
+					item.CFrame = CFrame.new(tpPos)
+	
+					-- Model
+				elseif item:IsA("Model") then
+					item:PivotTo(CFrame.new(tpPos))
+	
+					-- Tool
+				elseif item:IsA("Tool") and item:FindFirstChild("Handle") then
+					item.Handle.CFrame = CFrame.new(tpPos)
+				end
+			end
+		end
+	
 	end)
 	
-	
 end
-coroutine.wrap(VLFMN_fake_script)()
+coroutine.wrap(MKAEKU_fake_script)()
