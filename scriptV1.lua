@@ -7,6 +7,7 @@ local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local TextButton = Instance.new("TextButton")
 local TextButton_2 = Instance.new("TextButton")
+local TextButton_3 = Instance.new("TextButton")
 
 --Properties:
 
@@ -41,9 +42,19 @@ TextButton_2.Font = Enum.Font.SourceSans
 TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_2.TextSize = 14.000
 
+TextButton_3.Parent = Frame
+TextButton_3.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
+TextButton_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_3.BorderSizePixel = 0
+TextButton_3.Position = UDim2.new(0.206997082, 0, 0.700934589, 0)
+TextButton_3.Size = UDim2.new(0, 200, 0, 50)
+TextButton_3.Font = Enum.Font.SourceSans
+TextButton_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_3.TextSize = 14.000
+
 -- Scripts:
 
-local function AVGMI_fake_script() -- TextButton.LocalScript 
+local function QOCMXAS_fake_script() -- TextButton.LocalScript 
 	local script = Instance.new('LocalScript', TextButton)
 
 	local Players = game:GetService("Players")
@@ -126,8 +137,8 @@ local function AVGMI_fake_script() -- TextButton.LocalScript
 	
 	
 end
-coroutine.wrap(AVGMI_fake_script)()
-local function MKAEKU_fake_script() -- TextButton_2.LocalScript 
+coroutine.wrap(QOCMXAS_fake_script)()
+local function SNKMP_fake_script() -- TextButton_2.LocalScript 
 	local script = Instance.new('LocalScript', TextButton_2)
 
 	local button = script.Parent
@@ -220,4 +231,47 @@ local function MKAEKU_fake_script() -- TextButton_2.LocalScript
 	end)
 	
 end
-coroutine.wrap(MKAEKU_fake_script)()
+coroutine.wrap(SNKMP_fake_script)()
+local function ACHX_fake_script() -- TextButton_3.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_3)
+
+	local button = script.Parent
+	local player = game.Players.LocalPlayer
+	
+	button.MouseButton1Click:Connect(function()
+		local char = player.Character
+		if not char then return end
+	
+		local root = char:FindFirstChild("HumanoidRootPart")
+		if not root then return end
+	
+		-- MainFire position
+		local camp = workspace:FindFirstChild("Campground")
+		if not camp then return end
+		local mainFire = camp:FindFirstChild("MainFire")
+		if not mainFire then return end
+		local firePos = mainFire:GetPivot().Position + Vector3.new(0, 4, 0)
+	
+		-- หา Chests ทั้งหมด
+		for _, chest in ipairs(workspace:GetDescendants()) do
+			if string.find(string.lower(chest.Name), "chest") then
+				-- เปิดกล่อง (ถ้ามีสคริปต์เปิด/ปิดใน Chest ก็เพิ่มได้)
+				-- วาร์ปของในกล่องมาที่ MainFire
+				for _, item in ipairs(chest:GetDescendants()) do
+					if item:IsA("Tool") or item:IsA("BasePart") or item:IsA("Model") then
+						if item:IsA("Tool") and item:FindFirstChild("Handle") then
+							item.Handle.CFrame = CFrame.new(firePos)
+						elseif item:IsA("BasePart") then
+							item.CFrame = CFrame.new(firePos)
+						elseif item:IsA("Model") then
+							item:PivotTo(CFrame.new(firePos))
+						end
+					end
+				end
+			end
+		end
+	end)
+	
+	
+end
+coroutine.wrap(ACHX_fake_script)()
