@@ -3,275 +3,149 @@
 
 -- Instances:
 
-local ScreenGui = Instance.new("ScreenGui")
+local Gui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
-local TextButton = Instance.new("TextButton")
-local TextButton_2 = Instance.new("TextButton")
-local TextButton_3 = Instance.new("TextButton")
+local TextButton_Add = Instance.new("TextButton")
+local TextButton_Sub = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local TextBox = Instance.new("TextBox")
+local UICorner_2 = Instance.new("UICorner")
 
 --Properties:
 
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Gui.Name = "บวกลบGui"
+Gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-Frame.Parent = ScreenGui
+Frame.Parent = Gui
 Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0.521582723, 0, 0.178046986, 0)
-Frame.Size = UDim2.new(0, 343, 0, 214)
+Frame.Position = UDim2.new(0.833333313, 0, 0.0224971883, 0)
+Frame.Size = UDim2.new(0, 154, 0, 167)
 
-TextButton.Name = "เสกของ"
-TextButton.Parent = Frame
-TextButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextButton.BorderSizePixel = 0
-TextButton.Position = UDim2.new(0.206997082, 0, 0.0841121525, 0)
-TextButton.Size = UDim2.new(0, 200, 0, 50)
-TextButton.Font = Enum.Font.SourceSans
-TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextButton.TextSize = 14.000
+TextButton_Add.Name = "TextButton_Add"
+TextButton_Add.Parent = Frame
+TextButton_Add.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+TextButton_Add.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_Add.BorderSizePixel = 0
+TextButton_Add.Position = UDim2.new(0.0881684572, 0, 0.0697248057, 0)
+TextButton_Add.Size = UDim2.new(0, 58, 0, 30)
+TextButton_Add.Font = Enum.Font.SourceSansBold
+TextButton_Add.Text = "+"
+TextButton_Add.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_Add.TextScaled = true
+TextButton_Add.TextSize = 14.000
+TextButton_Add.TextWrapped = true
 
-TextButton_2.Parent = Frame
-TextButton_2.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
-TextButton_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextButton_2.BorderSizePixel = 0
-TextButton_2.Position = UDim2.new(0.206997082, 0, 0.383177578, 0)
-TextButton_2.Size = UDim2.new(0, 200, 0, 50)
-TextButton_2.Font = Enum.Font.SourceSans
-TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextButton_2.TextSize = 14.000
+TextButton_Sub.Name = "TextButton_Sub"
+TextButton_Sub.Parent = Frame
+TextButton_Sub.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+TextButton_Sub.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_Sub.BorderSizePixel = 0
+TextButton_Sub.Position = UDim2.new(0.536220431, 0, 0.0697248057, 0)
+TextButton_Sub.Size = UDim2.new(0, 58, 0, 30)
+TextButton_Sub.Font = Enum.Font.SourceSansBold
+TextButton_Sub.Text = "-"
+TextButton_Sub.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_Sub.TextScaled = true
+TextButton_Sub.TextSize = 14.000
+TextButton_Sub.TextWrapped = true
 
-TextButton_3.Parent = Frame
-TextButton_3.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
-TextButton_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextButton_3.BorderSizePixel = 0
-TextButton_3.Position = UDim2.new(0.206997082, 0, 0.700934589, 0)
-TextButton_3.Size = UDim2.new(0, 200, 0, 50)
-TextButton_3.Font = Enum.Font.SourceSans
-TextButton_3.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextButton_3.TextSize = 14.000
+UICorner.Parent = Frame
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(-2.86363626, 0, 0, 0)
+TextLabel.Size = UDim2.new(0, 200, 0, 50)
+TextLabel.Font = Enum.Font.Unknown
+TextLabel.Text = ""
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+TextBox.Parent = Frame
+TextBox.BackgroundColor3 = Color3.fromRGB(235, 235, 235)
+TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.BorderSizePixel = 0
+TextBox.Position = UDim2.new(0.116883114, 0, 0.299401194, 0)
+TextBox.Size = UDim2.new(0, 117, 0, 24)
+TextBox.Font = Enum.Font.SourceSans
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.TextSize = 14.000
+
+UICorner_2.Parent = TextBox
 
 -- Scripts:
 
-local function QOCMXAS_fake_script() -- TextButton.LocalScript 
-	local script = Instance.new('LocalScript', TextButton)
+local function FMRTMY_fake_script() -- Frame.LocalScript 
+	local script = Instance.new('LocalScript', Frame)
 
-	local Players = game:GetService("Players")
-	local player = Players.LocalPlayer
+	local label = script.Parent:WaitForChild("TextLabel")
+	local addButton = script.Parent:WaitForChild("TextButton_Add")
+	local subButton = script.Parent:WaitForChild("TextButton_Sub")
+	local textbox = script.Parent:WaitForChild("TextBox")
 	
-	local itemsFolder = workspace:WaitForChild("Items")
+	local count = 0
+	local extraText = ""   -- เก็บข้อความที่พิมพ์ใน TextBox
 	
-	local function teleportItemsAroundPlayer()
-		local character = player.Character
-		if not character then return end
-		local hrp = character:FindFirstChild("HumanoidRootPart")
-		if not hrp then return end
+	-- ฟังก์ชันอัปเดตข้อความใน TextLabel
+	local function updateLabel()
+		label.Text = tostring(count) .. " " .. extraText
+	end
 	
-		local center = hrp.Position
-	
-		local baseY = 0.8
-		local ringRadius = 12
-		local groupRadius = 3
-		local groupAngleStep = math.rad(20)
-	
-		-- จัดกลุ่มตามชื่อ
-		local groups = {}
-		for _, item in ipairs(itemsFolder:GetChildren()) do
-	
-			-- ❌ ข้ามของที่มีคำว่า chest ไม่ว่าจะตัวเล็กใหญ่
-			local lowerName = string.lower(item.Name)
-			if string.find(lowerName, "chest") then
-				continue
-			end
-	
-			if item:IsA("Tool") or item:IsA("BasePart") or item:IsA("Model") then
-				local name = item.Name
-				groups[name] = groups[name] or {}
-				table.insert(groups[name], item)
-			end
-		end
-	
-		local groupIndex = 0
-		for name, items in pairs(groups) do
-	
-			local angle = groupIndex * groupAngleStep
-			local gx = center.X + math.cos(angle) * ringRadius
-			local gz = center.Z + math.sin(angle) * ringRadius
-	
-			local groupY = baseY
-			local groupCenter = Vector3.new(gx, groupY, gz)
-	
-			local n = #items
-			local step = 2 * math.pi / math.max(n, 1)
-	
-			for i, item in ipairs(items) do
-				local a = (i - 1) * step
-				local ix = groupCenter.X + math.cos(a) * groupRadius
-				local iz = groupCenter.Z + math.sin(a) * groupRadius
-				local finalPos = Vector3.new(ix, groupY, iz)
-	
-				if item:IsA("Tool") then
-					local h = item:FindFirstChild("Handle")
-					if h then h.CFrame = CFrame.new(finalPos) end
-	
-				elseif item:IsA("BasePart") then
-					item.CFrame = CFrame.new(finalPos)
-	
-				elseif item:IsA("Model") then
-					local mc = item:GetModelCFrame()
-					local offset = finalPos - mc.Position
-					for _, p in ipairs(item:GetDescendants()) do
-						if p:IsA("BasePart") then
-							p.CFrame = p.CFrame + offset
-						end
-					end
-				end
-			end
-	
-			groupIndex += 1
+	-- ฟังก์ชันเปลี่ยนสี
+	local function updateColor()
+		if count < 0 then
+			label.TextColor3 = Color3.fromRGB(255, 0, 0)
+		else
+			label.TextColor3 = Color3.fromRGB(0, 255, 0)
 		end
 	end
 	
-	script.Parent.MouseButton1Click:Connect(teleportItemsAroundPlayer)
+	-- อัปเดตตอนเริ่ม
+	updateLabel()
+	updateColor()
 	
-	
-end
-coroutine.wrap(QOCMXAS_fake_script)()
-local function SNKMP_fake_script() -- TextButton_2.LocalScript 
-	local script = Instance.new('LocalScript', TextButton_2)
-
-	local button = script.Parent
-	local player = game.Players.LocalPlayer
-	local runService = game:GetService("RunService")
-	
-	-- รายชื่อของที่จะเทเลพอร์ตมาที่ผู้เล่น
-	local dropItems = {
-		["Morsel"] = true,
-		["Bunny Foot"] = true,
-		["Coal"] = true
-	}
-	
-	button.MouseButton1Click:Connect(function()
-		local char = player.Character
-		if not char then return end
-	
-		local root = char:FindFirstChild("HumanoidRootPart")
-		if not root then return end
-	
-		-----------------------------------------
-		-- ① เทเลพอร์ตมอนสเตอร์ใน Characters
-		-----------------------------------------
-		local folder = workspace:FindFirstChild("Characters")
-		if not folder then
-			warn("ไม่พบโฟลเดอร์ Characters")
-		else
-			local distance = 6
-	
-			for _, mob in pairs(folder:GetChildren()) do
-				local mobRoot = mob:FindFirstChild("HumanoidRootPart")
-				local humanoid = mob:FindFirstChildWhichIsA("Humanoid")
-	
-				if mobRoot then
-					-- คำนวณตำแหน่งด้านหน้า
-					local forwardPos = root.CFrame * CFrame.new(0, 0, -distance)
-	
-					-- ทำให้ mob หันหลังให้ผู้เล่น
-					mobRoot.CFrame = CFrame.lookAt(
-						Vector3.new(forwardPos.X, root.Position.Y, forwardPos.Z),
-						root.Position
-					) * CFrame.Angles(0, math.rad(180), 0)
-	
-					-- หยุดไม่ให้ขยับ
-					if humanoid then
-						humanoid.WalkSpeed = 0
-						humanoid.JumpPower = 0
-						humanoid:ChangeState(Enum.HumanoidStateType.Physics)
-					end
-	
-					-- anchor ทั้งหมด
-					for _, part in ipairs(mob:GetDescendants()) do
-						if part:IsA("BasePart") then
-							part.Anchored = true
-						end
-					end
-	
-					-- ปิดสคริปต์ดาเมจถ้ามี
-					if mob:FindFirstChild("DamageScript") then
-						mob.DamageScript.Disabled = true
-					end
-				end
-			end
-		end
-	
-		-----------------------------------------
-		-- ② เทเลพอร์ตของดรอปมาที่ผู้เล่น
-		-----------------------------------------
-	
-		for _, item in ipairs(workspace:GetDescendants()) do
-			if dropItems[item.Name] then
-	
-				local tpPos = root.Position + Vector3.new(0, 4, 0)
-	
-				-- BasePart
-				if item:IsA("BasePart") then
-					item.CFrame = CFrame.new(tpPos)
-	
-					-- Model
-				elseif item:IsA("Model") then
-					item:PivotTo(CFrame.new(tpPos))
-	
-					-- Tool
-				elseif item:IsA("Tool") and item:FindFirstChild("Handle") then
-					item.Handle.CFrame = CFrame.new(tpPos)
-				end
-			end
-		end
-	
+	-- ปุ่มบวก
+	addButton.MouseButton1Click:Connect(function()
+		count = count + 1
+		updateLabel()
+		updateColor()
 	end)
 	
-end
-coroutine.wrap(SNKMP_fake_script)()
-local function ACHX_fake_script() -- TextButton_3.LocalScript 
-	local script = Instance.new('LocalScript', TextButton_3)
-
-	local button = script.Parent
-	local player = game.Players.LocalPlayer
+	-- ปุ่มลบ
+	subButton.MouseButton1Click:Connect(function()
+		count = count - 1
+		updateLabel()
+		updateColor()
+	end)
 	
-	button.MouseButton1Click:Connect(function()
-		local char = player.Character
-		if not char then return end
-	
-		local root = char:FindFirstChild("HumanoidRootPart")
-		if not root then return end
-	
-		-- MainFire position
-		local camp = workspace:FindFirstChild("Campground")
-		if not camp then return end
-		local mainFire = camp:FindFirstChild("MainFire")
-		if not mainFire then return end
-		local firePos = mainFire:GetPivot().Position + Vector3.new(0, 4, 0)
-	
-		-- หา Chests ทั้งหมด
-		for _, chest in ipairs(workspace:GetDescendants()) do
-			if string.find(string.lower(chest.Name), "chest") then
-				-- เปิดกล่อง (ถ้ามีสคริปต์เปิด/ปิดใน Chest ก็เพิ่มได้)
-				-- วาร์ปของในกล่องมาที่ MainFire
-				for _, item in ipairs(chest:GetDescendants()) do
-					if item:IsA("Tool") or item:IsA("BasePart") or item:IsA("Model") then
-						if item:IsA("Tool") and item:FindFirstChild("Handle") then
-							item.Handle.CFrame = CFrame.new(firePos)
-						elseif item:IsA("BasePart") then
-							item.CFrame = CFrame.new(firePos)
-						elseif item:IsA("Model") then
-							item:PivotTo(CFrame.new(firePos))
-						end
-					end
-				end
+	-- เมื่อ textbox พิมพ์แล้วกด Enter
+	textbox.FocusLost:Connect(function(enterPressed)
+		if enterPressed then
+			if textbox.Text ~= "" then
+				extraText = extraText .. textbox.Text .. " "  -- เพิ่มข้อความ
+				updateLabel()
 			end
 		end
 	end)
 	
+end
+coroutine.wrap(FMRTMY_fake_script)()
+local function OWFDPL_fake_script() -- TextLabel.LocalScript 
+	local script = Instance.new('LocalScript', TextLabel)
+
+	local label = script.Parent -- หรือใส่ path เอง
+	
+	label.BackgroundTransparency = 1
+	label.BorderSizePixel = 0  -- เอาขอบออกด้วยถ้าต้องการ
+	
 	
 end
-coroutine.wrap(ACHX_fake_script)()
+coroutine.wrap(OWFDPL_fake_script)()
