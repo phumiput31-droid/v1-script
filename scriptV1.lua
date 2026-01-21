@@ -6,5 +6,6 @@ return {
     {Id = 5946446414,  Script = "xTNKWT8X", Tag = "Obby Map B"},
     {Id = 17188200379, Script = "MhDSQf6i", Tag = "Combat Map 1"},
     {Id = 10449761463, Script = "FcJp64bg", Tag = "Combat Map 2"},
-    {Id = 85574678542712, Script = "uV8rDx9t", Tag = "Flash Speedster Pro"}
+    {Id = 85574678542712, Script = "uV8rDx9t", Tag = "Flash Speedster Pro"},
+     {Id = 135619589726492, Script = "thJFJBFL", Tag = "Auto Win (BETA)"},
 }
