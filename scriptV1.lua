@@ -1,4 +1,3 @@
--- เนื้อหาใน GitHub ของคุณ
 return {
     {Id = 16518256559, Script = "zxYEzXue", Tag = "Mega Obby Fun"},
     {Id = 5972698540,  Script = "qLHgiFzR", Tag = "Easy Obby"},
