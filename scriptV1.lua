@@ -1,6 +1,6 @@
 return {
     {Id = 16518256559, Script = "zxYEzXue", Tag = "Fun for Kid"},
-    {Id = 94249547303335, Script = "ye6X0VeA", Tag = "GG map Brooo"},
+    {Id = 94249547303335, Script = "BH7Lgjk2", Tag = "GG map Brooo"},
     {Id = 5972698540,  Script = "qLHgiFzR", Tag = "Easy l"},
     {Id = 128646334704030, Script = "WjL2zGZB", Tag = "Fruit lol"},
     {Id = 8003084678,  Script = "xTNKWT8X", Tag = "Obby Map A"},
