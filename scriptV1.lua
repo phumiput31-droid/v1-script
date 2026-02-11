@@ -1,8 +1,8 @@
 return {
     -- ส่วนตั้งค่า Key System
     Config = {
-        Key = "GoodBoy1234567890987654321qwer10101", -- เปลี่ยน Key ตรงนี้
-        Url = "https://direct-link.net/3377873/oTUKqgDxRf6S" -- เปลี่ยน Link ตรงนี้
+        Key = "PoPoPooisGod192838922938383839928383833993833488392938e192838383829929283838382892929393838388", -- เปลี่ยน Key ตรงนี้
+        Url = "https://direct-link.net/3377873/uOIiLoN3sThd" -- เปลี่ยน Link ตรงนี้
     },
 
     -- ส่วนรายชื่อเกม (Script Hub) ที่คุณส่งมา
