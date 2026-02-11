@@ -8,6 +8,7 @@ return {
     -- ส่วนรายชื่อเกม (Script Hub) ที่คุณส่งมา
     Scripts = {
         {Id = 16518256559, Script = "zxYEzXue", Tag = "Fun for Kid"},
+        {Id = 139299356663913, Script = "7MQ97Qg7", Tag = "Nah i Win!!!"},
         {Id = 94249547303335, Script = "BH7Lgjk2", Tag = "GG map Brooo"},
         {Id = 5972698540,  Script = "qLHgiFzR", Tag = "Easy l"},
         {Id = 128646334704030, Script = "WjL2zGZB", Tag = "Fruit lol"},
